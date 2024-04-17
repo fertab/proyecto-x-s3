@@ -5,7 +5,7 @@ Documentación de templates de terraform para el despliegue de buckets en AWS S3
 En este desafío técnico, trabajamos con Terraform para configurar diferentes escenarios de almacenamiento en Amazon Simple Storage Service (S3). A continuación, describimos los tres escenarios abordados:
 
 ## Estructura de carpetas
-
+```shell
 .
 ├── Modulo S3
 │   ├── main.tf
@@ -30,7 +30,7 @@ En este desafío técnico, trabajamos con Terraform para configurar diferentes e
 │   │       └── variables.tf
 │   ├── outputs.tf
 │   └── variables.tf
-
+```shell
 
 ## Escenario 1: Creación de Bucket S3 Simple
 
