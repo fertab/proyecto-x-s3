@@ -29,7 +29,7 @@ En el tercer escenario, se establece la replicación de objetos entre dos bucket
 
 - **Replicación entre Regiones:** Se configura la replicación de objetos entre dos buckets S3 ubicados en las regiones `us-east-1` y `us-west-2`.
 
-**terraform plan** de este último escenario
+**terraform plan -target=module.s3-crr** de este último escenario
 ```
 > terraform plan
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the
