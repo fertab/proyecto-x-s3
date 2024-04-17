@@ -1,4 +1,4 @@
-# proyecto-x-s3
+# proyecto-x **s3**
 Documentación de templates de terraform para el despliegue de buckets en AWS S3 (Betta Cloud)
 # Desafío Técnico de Terraform - Creación de Escenarios de S3
 
@@ -14,6 +14,51 @@ En este escenario, creamos un bucket S3 básico con las siguientes característi
 
 Este escenario se implementa a través de un módulo de Terraform que permite configurar la cantidad de buckets que se desean desplegar mediante un local llamado `bucket_count`.
 
+**terraform plan -target=module.buckets** de este escenario
+
+```
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # module.buckets.aws_s3_bucket.buckets[0] will be created
+  + resource "aws_s3_bucket" "buckets" {
+      + acceleration_status         = (known after apply)
+      + acl                         = "private"
+      + arn                         = (known after apply)
+      + bucket                      = "bucket-proyecto-x-0"
+      + bucket_domain_name          = (known after apply)
+      + bucket_prefix               = (known after apply)
+      + bucket_regional_domain_name = (known after apply)
+      + force_destroy               = false
+      + hosted_zone_id              = (known after apply)
+      + id                          = (known after apply)
+      + object_lock_enabled         = (known after apply)
+      + policy                      = (known after apply)
+      + region                      = (known after apply)
+      + request_payer               = (known after apply)
+      + tags_all                    = (known after apply)
+      + website_domain              = (known after apply)
+      + website_endpoint            = (known after apply)
+
+      + server_side_encryption_configuration {
+          + rule {
+              + apply_server_side_encryption_by_default {
+                  + sse_algorithm = "AES256"
+                }
+            }
+        }
+
+      + versioning {
+          + enabled    = true
+          + mfa_delete = false
+        }
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+```
+
 ## Escenario 2: Creación de Bucket S3 con Static Web Hosting
 
 En este segundo escenario, extendemos el escenario anterior agregando la funcionalidad de Static Web Hosting al bucket S3. Además de las características del escenario anterior, este escenario incluye lo siguiente:
@@ -22,6 +67,58 @@ En este segundo escenario, extendemos el escenario anterior agregando la funcion
 - **Archivos Index.html y Error.html:** Se cargan y configuran los archivos `index.html` y `error.html` en el bucket S3 para servir como página de inicio y página de error, respectivamente.
 
 Este escenario también se implementa mediante un módulo de Terraform que permite configurar la cantidad de buckets a desplegar.
+
+**terraform plan -target=module.buckets_web** de este escenario
+
+```
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # module.buckets_web.aws_s3_bucket.static_website[0] will be created
+  + resource "aws_s3_bucket" "static_website" {
+      + acceleration_status         = (known after apply)
+      + acl                         = "private"
+      + arn                         = (known after apply)
+      + bucket                      = "bucket-proyecto-x-us-east-1-0"
+      + bucket_domain_name          = (known after apply)
+      + bucket_prefix               = (known after apply)
+      + bucket_regional_domain_name = (known after apply)
+      + force_destroy               = false
+      + hosted_zone_id              = (known after apply)
+      + id                          = (known after apply)
+      + object_lock_enabled         = (known after apply)
+      + policy                      = (known after apply)
+      + region                      = (known after apply)
+      + request_payer               = (known after apply)
+      + tags_all                    = (known after apply)
+      + website_domain              = (known after apply)
+      + website_endpoint            = (known after apply)
+
+      + server_side_encryption_configuration {
+          + rule {
+              + apply_server_side_encryption_by_default {
+                  + sse_algorithm = "AES256"
+                }
+            }
+        }
+
+      + versioning {
+          + enabled    = true
+          + mfa_delete = false
+        }
+
+      + website {
+          + error_document = "error.html"
+          + index_document = "index.html"
+        }
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+```
+
 
 ## Escenario 3: Configuración de Replicación entre Buckets S3 en Regiones Diferentes
 
@@ -259,16 +356,5 @@ Note: You didn't use the -out option to save this plan, so Terraform can't guara
 you run "terraform apply" now.
 
 ```
-
-
-## Instrucciones de Uso
-
-Para desplegar cada escenario, sigue los siguientes pasos:
-
-1. Clona este repositorio en tu entorno local.
-2. Accede al directorio del escenario deseado.
-3. Ejecuta `terraform init` para inicializar el entorno de Terraform.
-4. Ejecuta `terraform plan` para revisar los cambios propuestos.
-5. Si estás satisfecho con los cambios propuestos, ejecuta `terraform apply` para aplicarlos y desplegar la infraestructura en AWS.
 
 # Fernando Taboada
