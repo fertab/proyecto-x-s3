@@ -128,7 +128,6 @@ En el tercer escenario, se establece la replicación de objetos entre dos bucket
 
 **terraform plan -target=module.s3-crr** de este último escenario
 ```
-> terraform plan
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the
 following symbols:
   + create
