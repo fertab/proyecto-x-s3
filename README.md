@@ -63,7 +63,7 @@ Terraform will perform the following actions:
                           + "s3:GetReplicationConfiguration",
                         ]
                       + Effect   = "Allow"
-                      + Resource = "arn:aws:s3:::sumit-source-2022"
+                      + Resource = "arn:aws:s3:::proyecto-x-bucket-source1"
                       + Sid      = ""
                     },
                   + {
@@ -72,7 +72,7 @@ Terraform will perform the following actions:
                           + "s3:GetObjectVersionAcl",
                         ]
                       + Effect   = "Allow"
-                      + Resource = "arn:aws:s3:::sumit-source-2022/*"
+                      + Resource = "arn:aws:s3:::proyecto-x-bucket-source1/*"
                       + Sid      = ""
                     },
                   + {
@@ -82,7 +82,7 @@ Terraform will perform the following actions:
                           + "s3:ObjectOwnerOverrideToBucketOwner",
                         ]
                       + Effect   = "Allow"
-                      + Resource = "arn:aws:s3:::replica-sumit-source-2022/*"
+                      + Resource = "arn:aws:s3:::replica-proyecto-x-bucket-source1/*"
                       + Sid      = ""
                     },
                 ]
@@ -105,13 +105,13 @@ Terraform will perform the following actions:
                   + {
                       + Action   = "s3:PutObject"
                       + Effect   = "Allow"
-                      + Resource = "arn:aws:s3:::sumit-source-2022/*"
+                      + Resource = "arn:aws:s3:::proyecto-x-bucket-source1/*"
                       + Sid      = ""
                     },
                   + {
                       + Action   = "s3:ListBucket"
                       + Effect   = "Allow"
-                      + Resource = "arn:aws:s3:::sumit-source-2022"
+                      + Resource = "arn:aws:s3:::proyecto-x-bucket-source1"
                       + Sid      = ""
                     },
                 ]
@@ -180,7 +180,7 @@ Terraform will perform the following actions:
       + acceleration_status         = (known after apply)
       + acl                         = "private"
       + arn                         = (known after apply)
-      + bucket                      = "replica-sumit-source-2022"
+      + bucket                      = "replica-proyecto-x-bucket-source1"
       + bucket_domain_name          = (known after apply)
       + bucket_regional_domain_name = (known after apply)
       + force_destroy               = false
@@ -199,7 +199,7 @@ Terraform will perform the following actions:
                       + Principal = {
                           + AWS = "arn:aws:iam::YourAccountId:root"
                         }
-                      + Resource  = "arn:aws:s3:::replica-sumit-source-2022/*"
+                      + Resource  = "arn:aws:s3:::replica-proyecto-x-bucket-source1/*"
                       + Sid       = "replicate-objects-from-YourAccountId-to-prefix-"
                     },
                 ]
@@ -221,7 +221,7 @@ Terraform will perform the following actions:
       + acceleration_status         = (known after apply)
       + acl                         = "private"
       + arn                         = (known after apply)
-      + bucket                      = "sumit-source-2022"
+      + bucket                      = "proyecto-x-bucket-source1"
       + bucket_domain_name          = (known after apply)
       + bucket_regional_domain_name = (known after apply)
       + force_destroy               = false
@@ -240,7 +240,7 @@ Terraform will perform the following actions:
               + status   = "Enabled"
 + destination {
                   + account_id    = "YourAccountId"
-                  + bucket        = "arn:aws:s3:::replica-sumit-source-2022"
+                  + bucket        = "arn:aws:s3:::replica-proyecto-x-bucket-source1"
                   + storage_class = "STANDARD"
 + access_control_translation {
                       + owner = "Destination"
