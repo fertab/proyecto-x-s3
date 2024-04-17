@@ -30,7 +30,7 @@ En este desafío técnico, trabajamos con Terraform para configurar diferentes e
 │   │       └── variables.tf
 │   ├── outputs.tf
 │   └── variables.tf
-```shell
+```
 
 ## Escenario 1: Creación de Bucket S3 Simple
 
