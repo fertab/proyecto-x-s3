@@ -152,7 +152,7 @@ Plan: 1 to add, 0 to change, 0 to destroy.
 
 En el tercer escenario, se establece la replicación de objetos entre dos buckets S3 ubicados en diferentes regiones de AWS. Las características clave de este escenario son:
 
-- **Replicación entre Regiones:** Se configura la replicación de objetos entre dos buckets S3 ubicados en las regiones `us-east-1` y `us-west-2`.
+- **Replicación entre Regiones:** Se configura la replicación de objetos entre dos buckets S3 ubicados en las regiones `us-east-1` y `us-west-2` (Pueden ser cualquiera, este es solo un ejemplo)
 
 **terraform plan -target=module.s3-crr** de este último escenario
 ```
