@@ -1,8 +1,8 @@
 # proyecto-x **s3**
-Documentación de templates de terraform para el despliegue de buckets en AWS S3 (Betta Cloud)
+Documentación de templates en Terraform para el despliegue de buckets en AWS S3
 # Desafío Técnico de Terraform - Creación de Escenarios de S3
 
-En este desafío técnico, trabajamos con Terraform para configurar diferentes escenarios de almacenamiento en Amazon Simple Storage Service (S3). A continuación, describimos los tres escenarios abordados:
+Se trabaja con Terraform para configurar diferentes escenarios de S3.
 
 ## Estructura de carpetas
 ```shell
@@ -32,15 +32,17 @@ En este desafío técnico, trabajamos con Terraform para configurar diferentes e
 │   └── variables.tf
 ```
 
+A continuación, se describen los escenarios abordados:
+
 ## Escenario 1: Creación de Bucket S3 Simple
 
-En este escenario, creamos un bucket S3 básico con las siguientes características:
+En este escenario, se crea un bucket S3 básico con las siguientes características:
 
 - **Versionado Habilitado:** El versionado del bucket está activado, lo que permite mantener múltiples versiones de un mismo objeto.
 - **Server-Side Encryption (SSE) Habilitado:** La encriptación del lado del servidor está activada para garantizar la seguridad de los datos almacenados.
 - **Preservación de Delete Markers:** Cuando se habilita el versionado, los marcadores de eliminación (delete markers) se preservan, lo que garantiza que las eliminaciones de objetos no sean permanentes.
 
-Este escenario se implementa a través de un módulo de Terraform que permite configurar la cantidad de buckets que se desean desplegar mediante un local llamado `bucket_count`.
+Este escenario (y el resto) se implementa a través de un módulo de Terraform que permite configurar la cantidad de buckets que se desean desplegar mediante un local llamado `bucket_count`. Se pueden desplegar N buckets.
 
 **terraform plan -target=module.buckets** de este escenario
 
@@ -152,7 +154,7 @@ Plan: 1 to add, 0 to change, 0 to destroy.
 
 En el tercer escenario, se establece la replicación de objetos entre dos buckets S3 ubicados en diferentes regiones de AWS. Las características clave de este escenario son:
 
-- **Replicación entre Regiones:** Se configura la replicación de objetos entre dos buckets S3 ubicados en las regiones `us-east-1` y `us-west-2` (Pueden ser cualquiera, este es solo un ejemplo)
+- **Replicación entre Regiones:** Se configura la replicación de objetos entre dos buckets S3 ubicados en las regiones `us-east-1` y `us-west-2` (Puede ser cualquier región, este es solo un ejemplo)
 
 **terraform plan -target=module.s3-crr** de este último escenario
 ```
