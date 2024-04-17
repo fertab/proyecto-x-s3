@@ -365,7 +365,7 @@ Terraform will perform the following actions:
               + priority = 0
               + status   = "Enabled"
 + destination {
-                  + account_id    = "YourAccountId"
+                  + account_id    = ""
                   + bucket        = "arn:aws:s3:::replica-proyecto-x-bucket-source1"
                   + storage_class = "STANDARD"
 + access_control_translation {
